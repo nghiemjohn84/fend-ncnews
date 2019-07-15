@@ -21,7 +21,7 @@ class Articles extends React.Component {
     }
 
     fetchArticles = () =>{
-        getArticles(this.props.topics)
+        getArticles(this.props)
         .then((articles) => {
             this.setState({
                 articles, loading: false
