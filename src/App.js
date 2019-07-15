@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Navbar from './components/Navbar'
 import Articles from './components/Articles'
 import Home from './components/Home'
+// import Article from './components/Article'
 
 class App extends React.Component {
   state = {
@@ -19,8 +20,10 @@ class App extends React.Component {
       <Header loggedInAs={loggedInAs}/>
       <Navbar />
       <Router>
-        <Home path='/' />
-        <Articles path='/articles' />
+        <Home path='/'/>
+        <Articles path='/articles' loggedInAs={loggedInAs}/>
+        <Articles path='/articles/topic/:topic' loggedInAs={loggedInAs}/>
+        {/* <Article path='/articles/:id' loggedInAs={loggedInAs}/> */}
       </Router>
 
     </div>

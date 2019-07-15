@@ -2,9 +2,13 @@ import axios from 'axios'
 
 const BASE_URL = 'https://nc-news-jn.herokuapp.com/api'
 
-export const getArticles = () => {
+export const getArticles = (topic) => {
     return axios
-        .get(`${BASE_URL}/articles`)
+        .get(`${BASE_URL}/articles`, {
+            params: {
+                topic
+            }
+        })
         .then(data => {
             return data.data.articles
         })

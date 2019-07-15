@@ -1,12 +1,15 @@
 import React from 'react';
 import {Link} from '@reach/router'
+import '../styles/Navbar.css'
 
 const Navbar = () => {
     return (
         <nav>
-            <h1>Navbar</h1>
-            <Link to='/'>Home Page</Link>{' '}
-            <Link to='/articles'>Articles</Link>
+            <Link to='/'><button className='navButton'>Home</button></Link>
+            <Link to='/articles'><button className='navButton'>All Articles</button></Link>
+            <Link to='/articles/topic/cooking'><button className='navButton'>Cooking</button></Link>
+            <Link to='/articles/topic/football'><button className='navButton'>Football</button></Link> 
+            <Link to='/articles/topic/coding'><button className='navButton'>Coding</button></Link>   
         </nav>
     )
 }
