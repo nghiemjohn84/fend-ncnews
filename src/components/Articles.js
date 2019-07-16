@@ -2,12 +2,15 @@ import React from 'react';
 import {getArticles} from '../api'
 import '../styles/Articles.css'
 import {Link} from '@reach/router'
+import Loading from '../utils/Loading'
+import ErrorPage from '../utils/ErrorPage'
 
 
 class Articles extends React.Component {
     state = {
         articles: [],
-        loading: true
+        isLoading: true,
+        err: null
     }
 
     componentDidMount() {
@@ -24,13 +27,17 @@ class Articles extends React.Component {
         getArticles(this.props)
         .then((articles) => {
             this.setState({
-                articles, loading: false
+                articles, isLoading: false
             })
+        }).catch((err) => {
+            this.setState({err})
         })
     }
 
     render() {
-        const {articles} = this.state
+        const {articles, isLoading, err} = this.state
+        if(err) return <ErrorPage err={err} />
+        if(isLoading) return <Loading text='loading articles...' />
         return(
             <div>
                 <ul>

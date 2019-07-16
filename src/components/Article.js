@@ -1,16 +1,19 @@
 import React from 'react'
-import {getArticle} from '../api'
+import {getArticleByArticleId} from '../api'
+import Loading from '../utils/Loading'
+import ErrorPage from '../utils/ErrorPage'
 
 class Article extends React.Component {
     state = {
         article: {},
-        isLoading: true
+        isLoading: true,
+        err: null
     }
 
     componentDidMount() {
         console.log(this.props)
         const {article_id} = this.props
-        getArticle(article_id)
+        getArticleByArticleId(article_id)
             .then(article => {
             this.setState({
                 article: article, isLoading: false
@@ -19,7 +22,9 @@ class Article extends React.Component {
     }
     
     render() {
-        const {article} = this.state
+        const {article, isLoading, err} = this.state
+        if(err) return <ErrorPage err={err} />
+        if(isLoading) return <Loading text='Loading article...' />
         return(       
             <div className='article'>
                 <h3>{article.title}</h3>
