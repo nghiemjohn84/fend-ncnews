@@ -9,7 +9,7 @@ import Article from './components/Article'
 
 class App extends React.Component {
   state = {
-    loggedInAs: 'Jessjelly'
+    loggedInAs: 'jessjelly',
   }
 
 
@@ -24,7 +24,6 @@ class App extends React.Component {
         <Articles path='/articles' loggedInAs={loggedInAs}/>
         <Articles path='/articles/topic/:topic' loggedInAs={loggedInAs}/>
         <Article path='/articles/:article_id' loggedInAs={loggedInAs} />
-        <Article path='/articles/:article_id/comments' />
       </Router>
 
     </div>

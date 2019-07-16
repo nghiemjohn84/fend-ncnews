@@ -1,9 +1,18 @@
 import React from 'react';
 import {getArticleComments} from '../api'
+import '../styles/ArticleComments.css'
+import CommentAdder from './CommentAdder'
+import Loading from '../utils/Loading'
+import ErrorPage from '../utils/ErrorPage'
+import CommentCard from './CommentCard'
+
+
 
 class ArticleComments extends React.Component {
     state = {
-        articleComments: []
+        comments: [],
+        isLoading: true,
+        err: null
     }
 
     componentDidMount() {
@@ -11,25 +20,33 @@ class ArticleComments extends React.Component {
         getArticleComments(article_id)
         .then(comments => {
             this.setState({
-                articleComments: comments
+                comments: comments, isLoading: false
             })
+        })
+        .catch(err => {
+            this.setState({err})
+        })
+    }
+
+    addComment = commentToAdd => {
+        this.setState(({comments}) => {
+            return {comments: [commentToAdd, ...comments]}
         })
     }
 
     render() {
-        const {articleComments} = this.state
-        console.log(articleComments)
+        const {comments, isLoading, err} = this.state
+        const {article_id, username} = this.props
+        if(err) return <ErrorPage err={err} />
+        if(isLoading) return <Loading text='Loading comments...' />
         return (
-            <div className='comments'>
-                <h1>Article Comments</h1>
+            <div>
+                <CommentAdder addComment={this.addComment} article_id={article_id} username={username}/>
+                <h3>Submitted Comments:</h3>
                 <ul>
-                    {articleComments.map(comment => {
+                    {comments.map(comment => {
                         return (
-                            <li key={comment.comment_id}>
-                                {comment.body}
-                                <p>Author: {comment.author}</p>
-                                <p>Added:</p>
-                            </li>
+                            <CommentCard comment={comment} key={comment.comment_id} />
                         )
                     })}
                 </ul>

@@ -1,9 +1,9 @@
 import React from 'react'
-import {Link} from '@reach/router'
 import {getArticleByArticleId} from '../api'
 import Loading from '../utils/Loading'
 import ErrorPage from '../utils/ErrorPage'
-import ArticleComment from '../components/ArticleComments'
+import ArticleComments from '../components/ArticleComments'
+
 
 class Article extends React.Component {
     state = {
@@ -13,18 +13,20 @@ class Article extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props)
         const {article_id} = this.props
         getArticleByArticleId(article_id)
             .then(article => {
             this.setState({
                 article: article, isLoading: false
             })
+        }).catch(err => {
+            this.setState({err})
         })
     }
     
     render() {
         const {article, isLoading, err} = this.state
+        const {loggedInAs, article_id} = this.props
         if(err) return <ErrorPage err={err} />
         if(isLoading) return <Loading text='Loading article...' />
         return(       
@@ -33,11 +35,10 @@ class Article extends React.Component {
                 <p>{article.body}</p>
                 <h4>Author:{article.author}</h4>
                 <h4>Topic: {article.topic}</h4>
-                <h4>Submitted by: {article.author}</h4>
                 <h4>Comments: {article.comment_count}</h4>
                 <h4>Votes: {article.votes}</h4>
                 <h5>Created at: {article.created_at}</h5>
-                <ArticleComment article_id={this.props.article_id}/>
+                <ArticleComments article_id={article_id} username={loggedInAs}/>
             </div>
         )
     }

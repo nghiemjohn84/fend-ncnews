@@ -2,30 +2,27 @@ import axios from 'axios'
 
 const BASE_URL = 'https://nc-news-jn.herokuapp.com/api'
 
-export const getArticles = ({topic}) => {
-    return axios
-        .get(`${BASE_URL}/articles`, {
+export const getArticles = async ({topic}) => {
+    const {data} = await axios.get(`${BASE_URL}/articles`, {
             params: {
                 topic
             }
-        })
-        .then(({data}) => {
-            return data.articles
-        })
+    })
+    return data.articles
 }
 
-export const getArticleByArticleId = article_id => {
-    return axios
-        .get(`${BASE_URL}/articles/${article_id}`)
-        .then(({data}) => {
-            return data.article
-        })
+export const getArticleByArticleId = async article_id => {
+    const {data} = await axios.get(`${BASE_URL}/articles/${article_id}`)
+    return data.article
 }
 
-export const getArticleComments = article_id => {
-    return axios
-        .get(`${BASE_URL}/articles/${article_id}/comments`)
-        .then(({data}) => {
-            return data.comments
-        })
+export const getArticleComments = async article_id => {
+    const {data} = await axios.get(`${BASE_URL}/articles/${article_id}/comments`)
+    return data.comments
 }
+
+export const postComment = async (article_id, newComment )=> {
+    const {data} = await axios.post(`${BASE_URL}/articles/${article_id}/comments`, newComment)
+    return data.comment
+}
+
