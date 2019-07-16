@@ -7,7 +7,7 @@ import {Link} from '@reach/router'
 class Articles extends React.Component {
     state = {
         articles: [],
-        loading: false
+        loading: true
     }
 
     componentDidMount() {
@@ -37,11 +37,14 @@ class Articles extends React.Component {
                     {articles.map(article => {
                         return(
                             <li className='articleBox' key={article.article_id}>
-                                <h3>{article.title}</h3>
+                                <Link to={`/articles/${article.article_id}`}>
+                                   <h3>{article.title}</h3> </Link>
                                 <h5>{article.body}</h5>
                                 <Link to={`/articles/topic/${article.topic}`}>
                                 <h5>Topic: {article.topic}</h5></Link>
                                 <h4>Submitted by: {article.author}</h4>
+                                <h4>Submitted on: {article.created_at}</h4>
+                                <h4>Comments:{article.comment_count}</h4>
                             </li>
                         )
                     })}
