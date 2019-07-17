@@ -22,13 +22,16 @@ class CommentAdder extends React.Component {
         .then((newComment) => {
             this.props.addComment(newComment)
         })
+        .then(this.setState({
+            body: ''
+        }))
     }
 
     render() {
         const {body} = this.state
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor="body">Comment:</label>
+                <label htmlFor="body"> Add Comment:</label>
                 <input type="text" name='body' id='body' value={body} onChange={this.handleChange} required/>
                 <button>Add Comment</button>
             </form>

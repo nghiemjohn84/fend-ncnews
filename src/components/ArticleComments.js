@@ -1,10 +1,9 @@
 import React from 'react';
-import {getArticleComments} from '../api'
-import '../styles/ArticleComments.css'
+import {getArticleComments, deleteCommentById} from '../api'
 import CommentAdder from './CommentAdder'
 import Loading from '../utils/Loading'
 import ErrorPage from '../utils/ErrorPage'
-import CommentCard from './CommentCard'
+// import CommentCard from './CommentCard'
 
 
 
@@ -16,6 +15,10 @@ class ArticleComments extends React.Component {
     }
 
     componentDidMount() {
+        this.getComments()
+    }
+
+    getComments = () => {
         const {article_id} = this.props
         getArticleComments(article_id)
         .then(comments => {
@@ -23,9 +26,12 @@ class ArticleComments extends React.Component {
                 comments: comments, isLoading: false
             })
         })
-        .catch(err => {
-            this.setState({err})
-        })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.comments !== this.state.comments) {
+            this.getComments()
+        }
     }
 
     addComment = commentToAdd => {
@@ -34,6 +40,10 @@ class ArticleComments extends React.Component {
         })
     }
 
+    handleDelete = (id) => {
+        deleteCommentById(id)
+    }
+    
     render() {
         const {comments, isLoading, err} = this.state
         const {article_id, username} = this.props
@@ -46,7 +56,15 @@ class ArticleComments extends React.Component {
                 <ul>
                     {comments.map(comment => {
                         return (
-                            <CommentCard comment={comment} key={comment.comment_id} />
+                            <li key={comment.comment_id}>
+                                {comment.body}
+                                <p>Author: {comment.author}</p>
+                                <p>Added:</p>
+                                <button>Like</button>
+                                <button>Dislike</button>
+                                {(username === comment.author ? 
+                                <button onClick={() => this.handleDelete(comment.comment_id)}>Delete Comment</button> : '')}
+                            </li>
                         )
                     })}
                 </ul>
