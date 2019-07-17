@@ -6,11 +6,11 @@ import styles from '../styles/Home.module.css'
 
 const Home = () => {
     return(
-        <div>
+        <div className={styles.homepage}>
             <h1>Home Page</h1>
-            <img src={cooking} alt={'cooking'}/>
-            <img src={coding} alt={'coding'}/>
-            <img src={football} alt={'football'}/>
+            <img className={styles.img1} src={cooking} alt={'cooking'}/>
+            <img className={styles.img2} src={coding} alt={'coding'}/>
+            <img className={styles.img3} src={football} alt={'football'}/>
         </div>
     )
 }
