@@ -38,6 +38,8 @@ class Article extends React.Component {
                 <h4>Comments: {article.comment_count}</h4>
                 <h4>Votes: {article.votes}</h4>
                 <h5>Created at: {article.created_at}</h5>
+                <button>Like Article</button>
+                <button>Dislike Article</button>
                 <ArticleComments article_id={article_id} username={loggedInAs}/>
             </div>
         )

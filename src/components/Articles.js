@@ -4,11 +4,13 @@ import '../styles/Articles.css'
 import {Link} from '@reach/router'
 import Loading from '../utils/Loading'
 import ErrorPage from '../utils/ErrorPage'
+import Sorter from '../components/Sorter'
 
 
 class Articles extends React.Component {
     state = {
         articles: [],
+        sort_by: 'created_at',
         isLoading: true,
         err: null
     }
@@ -18,13 +20,16 @@ class Articles extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevProps.topic !== this.props.topic) {
+        if(prevProps.topic !== this.props.topic || 
+            prevState.sort_by !== this.state.sort_by) {
             this.fetchArticles()
         }
     }
 
     fetchArticles = () =>{
-        getArticles(this.props)
+        const {topic} = this.props
+        const {sort_by} = this.state
+        getArticles(topic, sort_by)
         .then((articles) => {
             this.setState({
                 articles, isLoading: false
@@ -34,12 +39,18 @@ class Articles extends React.Component {
         })
     }
 
+    setSort = e => {
+        const {value} = e.target
+        this.setState({sort_by: value})
+    }
+
     render() {
         const {articles, isLoading, err} = this.state
         if(err) return <ErrorPage err={err} />
         if(isLoading) return <Loading text='loading articles...' />
         return(
             <div>
+                <Sorter setSort={this.setSort}/>
                 <ul>
                     {articles.map(article => {
                         return(
@@ -52,6 +63,8 @@ class Articles extends React.Component {
                                 <h4>Submitted by: {article.author}</h4>
                                 <h4>Submitted on: {article.created_at}</h4>
                                 <h4>Comments:{article.comment_count}</h4>
+                                <button>Like Article</button>
+                                <button>Dislike Article</button>
                             </li>
                         )
                     })}

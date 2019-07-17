@@ -26,7 +26,7 @@ class CommentAdder extends React.Component {
             body: ''
         }))
     }
-
+    
     render() {
         const {body} = this.state
         return (
