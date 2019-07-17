@@ -12,7 +12,7 @@ class Articles extends React.Component {
     state = {
         articles: [],
         sort_by: 'created_at',
-        order: 'asc',
+        order: 'desc',
         isLoading: true,
         err: null
     }
@@ -70,10 +70,9 @@ class Articles extends React.Component {
                                 <Link to={`/articles/topic/${article.topic}`}>
                                 <h5>Topic: {article.topic}</h5></Link>
                                 <h4>Submitted by: {article.author}</h4>
-                                <h4>Submitted on: {article.created_at}</h4>
+                                {/* <h4>Submitted on: {article.created_at}</h4> */}
                                 <h4>Comments:{article.comment_count}</h4>
-                                <button>Like Article</button>
-                                <button>Dislike Article</button>
+                                <h4>Votes: {article.votes}</h4>
                             </li>
                         )
                     })}

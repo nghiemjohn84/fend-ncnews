@@ -4,6 +4,7 @@ import CommentAdder from './CommentAdder'
 import Loading from '../utils/Loading'
 import ErrorPage from '../utils/ErrorPage'
 // import CommentCard from './CommentCard'
+import Voter from '../components/Voter'
 
 
 
@@ -53,15 +54,15 @@ class ArticleComments extends React.Component {
             <div>
                 <CommentAdder addComment={this.addComment} article_id={article_id} username={username}/>
                 <h3>Submitted Comments:</h3>
-                <ul>
+                <ul className='article-comments'> 
                     {comments.map(comment => {
                         return (
                             <li key={comment.comment_id}>
                                 {comment.body}
                                 <p>Author: {comment.author}</p>
-                                <p>Added:</p>
-                                <button>Like</button>
-                                <button>Dislike</button>
+                                <p>Votes: {comment.votes}</p>
+                                <Voter votes={comment.votes} id={comment.comment_id} type='comment'/>
+                                {/* <p>Added:</p> */}
                                 {(username === comment.author ? 
                                 <button onClick={() => this.handleDelete(comment.comment_id)}>Delete Comment</button> : '')}
                             </li>

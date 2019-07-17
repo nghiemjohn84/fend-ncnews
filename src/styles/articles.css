@@ -8,20 +8,19 @@
  ul{
     list-style: none;
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
 }
 
  li{
     
-    background: var(--primary);
+    background: lightgray;
     text-align: center;
     padding: 1.5rem 2rem;
     box-shadow: var(--shadow);
 }
 
 .articleBox {
-    border-radius: 10px;
-    margin: 20px;
-    box-shadow: var(--shadow);
-
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: var(--shadow)
 }
