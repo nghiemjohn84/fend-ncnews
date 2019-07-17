@@ -1,12 +1,10 @@
 import React from 'react';
-import {getArticleComments, deleteCommentById} from '../api'
+import {getArticleComments, deleteCommentById} from '../../api'
+import styles from '../../styles/ArticleComments.module.css'
 import CommentAdder from './CommentAdder'
-import Loading from '../utils/Loading'
-import ErrorPage from '../utils/ErrorPage'
-// import CommentCard from './CommentCard'
-import Voter from '../components/Voter'
-
-
+import Loading from '../../utils/Loading'
+import ErrorPage from '../../utils/ErrorPage'
+import CommentCard from '../Comments/CommentCard'
 
 class ArticleComments extends React.Component {
     state = {
@@ -30,7 +28,7 @@ class ArticleComments extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevState.comments !== this.state.comments) {
+        if(prevState.comments.comment_id !== this.state.comments.comment_id) {
             this.getComments()
         }
     }
@@ -41,9 +39,10 @@ class ArticleComments extends React.Component {
         })
     }
 
-    handleDelete = (id) => {
-        deleteCommentById(id)
-    }
+    handleDelete = (comment_id) => {
+        deleteCommentById(comment_id)
+        this.setState({ comments: this.state.comments.filter(comment => comment.comment_id !== comment_id) })
+      };
     
     render() {
         const {comments, isLoading, err} = this.state
@@ -54,18 +53,10 @@ class ArticleComments extends React.Component {
             <div>
                 <CommentAdder addComment={this.addComment} article_id={article_id} username={username}/>
                 <h3>Submitted Comments:</h3>
-                <ul className='article-comments'> 
+                <ul> 
                     {comments.map(comment => {
                         return (
-                            <li key={comment.comment_id}>
-                                {comment.body}
-                                <p>Author: {comment.author}</p>
-                                <p>Votes: {comment.votes}</p>
-                                <Voter votes={comment.votes} id={comment.comment_id} type='comment'/>
-                                {/* <p>Added:</p> */}
-                                {(username === comment.author ? 
-                                <button onClick={() => this.handleDelete(comment.comment_id)}>Delete Comment</button> : '')}
-                            </li>
+                            <CommentCard key={comment.comment_id} comments={comment} handleDelete={this.handleDelete} username={username}/>
                         )
                     })}
                 </ul>

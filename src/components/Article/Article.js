@@ -1,9 +1,10 @@
 import React from 'react'
-import {getArticleByArticleId} from '../api'
-import Loading from '../utils/Loading'
-import ErrorPage from '../utils/ErrorPage'
-import ArticleComments from '../components/ArticleComments'
-import Voter from '../components/Voter'
+import {getArticleByArticleId} from '../../api'
+import Loading from '../../utils/Loading'
+import ErrorPage from '../../utils/ErrorPage'
+import ArticleComments from '../Comments/ArticleComments'
+import Voter from '../Voter'
+import styles from '../../styles/Article.module.css'
 
 
 class Article extends React.Component {
@@ -30,10 +31,10 @@ class Article extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevState.article !== this.state.article){
-            this.fetchArticleById()
+        if (prevProps.topic !== this.props.topic) {
+          this.fetchArticle();
         }
-    }
+      }
     
     render() {
         const {article, isLoading, err} = this.state
@@ -47,7 +48,6 @@ class Article extends React.Component {
                 <h4>Author:{article.author}</h4>
                 <h4>Topic: {article.topic}</h4>
                 <h4>Comments: {article.comment_count}</h4>
-                <h4>Votes: {article.votes}</h4>
                 <Voter votes={article.votes} id={article.article_id} type='article'/>
                 {/* <h5>Created at: {article.created_at}</h5> */}
                 <ArticleComments article_id={article_id} username={loggedInAs}/>

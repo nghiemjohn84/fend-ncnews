@@ -1,5 +1,6 @@
 import React from 'react';
-import {postComment} from '../api'
+import {postComment} from '../../api'
+import styles from '../../styles/CommentAdder.module.css'
 
 
 class CommentAdder extends React.Component {

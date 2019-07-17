@@ -2,6 +2,7 @@ import React from 'react';
 import coding from '../images/coding.jpg'
 import cooking from '../images/cooking.jpg'
 import football from '../images/football.jpeg'
+import styles from '../styles/Home.module.css'
 
 const Home = () => {
     return(

@@ -1,11 +1,11 @@
 import React from 'react';
-import {getArticles} from '../api'
-import '../styles/Articles.css'
-import {Link} from '@reach/router'
-import Loading from '../utils/Loading'
-import ErrorPage from '../utils/ErrorPage'
-import Sorter from '../components/Sorter'
-import OrderBy from '../components/OrderBy'
+import {getArticles} from '../../api'
+import styles from '../../styles/Articles.module.css'
+import Loading from '../../utils/Loading'
+import ErrorPage from '../../utils/ErrorPage'
+import Sorter from '../Sorter'
+import OrderBy from '../OrderBy'
+import ArticleCard from '../Article/ArticleCard'
 
 
 class Articles extends React.Component {
@@ -63,17 +63,7 @@ class Articles extends React.Component {
                 <ul>
                     {articles.map(article => {
                         return(
-                            <li className='articleBox' key={article.article_id}>
-                                <Link to={`/articles/${article.article_id}`}>
-                                   <h3>{article.title}</h3> </Link>
-                                <h5>{article.body}</h5>
-                                <Link to={`/articles/topic/${article.topic}`}>
-                                <h5>Topic: {article.topic}</h5></Link>
-                                <h4>Submitted by: {article.author}</h4>
-                                {/* <h4>Submitted on: {article.created_at}</h4> */}
-                                <h4>Comments:{article.comment_count}</h4>
-                                <h4>Votes: {article.votes}</h4>
-                            </li>
+                            <ArticleCard articles={article} key={article.article_id}/>
                         )
                     })}
                 </ul>

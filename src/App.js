@@ -3,9 +3,9 @@ import {Router} from '@reach/router'
 import './App.css';
 import Header from './components/Header'
 import Navbar from './components/Navbar'
-import Articles from './components/Articles'
+import Articles from './components/Articles/Articles'
 import Home from './components/Home'
-import Article from './components/Article'
+import Article from './components/Article/Article'
 
 class App extends React.Component {
   state = {

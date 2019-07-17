@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Loading.css'
+import styles from '../styles/Loading.module.css'
 import LoadingImg from '../images/LoadingImg.gif'
 
 const Loading = ({ text }) => {
