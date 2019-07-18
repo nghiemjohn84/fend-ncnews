@@ -1,19 +1,19 @@
 .navbar {
+    background: whitesmoke
 }
 
-button {
+.navbar button {
     background: var(--dark);
     border-radius: 5px;
     color: var(--light);
     padding: 1.6rem 1.9rem;
     text-decoration: none;
-    border: 0;
-    font-size:19px;
+    border: 10px;
     margin: 20px;
     font-size: 2.2vw
 }
 
-.navButton:hover {
-    background: lightgrey;
-    color: var(--dark);
+.navbar button:hover {
+    background: red;
+    color: white;
 }

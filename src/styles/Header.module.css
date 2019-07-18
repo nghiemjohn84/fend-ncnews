@@ -3,10 +3,10 @@
     grid-gap: 20px;
     grid-template-areas: 
     'title loggedInAs';
-    width: 100vw;
+    width: 98vw;
     background: gold;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
 } 
 
 .header h1 {

@@ -33,9 +33,9 @@ class CommentAdder extends React.Component {
         return (
             <div className={styles.commentAdder}>
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor="body"> Add Comment:</label>
+                <label htmlFor="body"> Share your thoughts:</label>
                 <input type="text" name='body' id='body' value={body} onChange={this.handleChange} required/>
-                <button>Add Comment</button>
+                <button>Submit my thoughts</button>
             </form>
             </div>
         )

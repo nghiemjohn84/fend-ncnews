@@ -6,9 +6,8 @@ import Voter from '../Voter'
 
 const ArticleCard = (props) => {
     const {articles} = props
-    return (
-        <div>
-            <li key={articles.article_id}>
+    return ( 
+            <li key={articles.article_id} className={styles.articlaCard}>
                 <Link to={`/articles/${articles.article_id}`}>
                 <h3>{articles.title}</h3> </Link>
                 <h5>{articles.body}</h5>
@@ -19,8 +18,6 @@ const ArticleCard = (props) => {
                 <h4>Comments:{articles.comment_count}</h4>
                 <Voter votes={articles.votes} id={articles.article_id} type='article'/>
             </li>
-        </div>
-        
     )  
 }
 

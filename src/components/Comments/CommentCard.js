@@ -6,7 +6,7 @@ import dateFormat from '../../utils/DateFormat'
 
 const CommentCard = (props) => {
     return (
-        <li key={props.comments.comment_id}>
+        <li className={styles.commentCard} key={props.comments.comment_id}>
             {props.comments.body}
             <p>Author: {props.comments.author}</p>
             <p>Votes: {props.comments.votes}</p>
@@ -18,4 +18,4 @@ const CommentCard = (props) => {
     )
 }
 
-export default CommentCard
+export default CommentCard 

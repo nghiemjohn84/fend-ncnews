@@ -12,7 +12,18 @@
     grid-gap: 10px;
 } */
 
- .articleList li{
+ /* .articleList li{
+    list-style: none;
+    text-align: center;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin: 10px;
+} */
+
+.articleList {
+    background: var(--dark);
+    border-radius: 5px;
+    box-shadow: var(--shadow);
     list-style: none;
     text-align: center;
     border-radius: 10px;
@@ -20,8 +31,14 @@
     margin: 10px;
 }
 
-.articleList {
+.articleList li{
+    background: white;
     border-radius: 5px;
-    margin: 20px;
-    box-shadow: var(--shadow)
+    margin: 10px;
+    box-shadow: var(--shadow);
+    list-style: none;
+    text-align: center;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+   
 }
