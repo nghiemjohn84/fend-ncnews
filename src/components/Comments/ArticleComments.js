@@ -53,10 +53,13 @@ class ArticleComments extends React.Component {
             <div>
                 <CommentAdder addComment={this.addComment} article_id={article_id} username={username}/>
                 <h3>Submitted Comments:</h3>
-                <ul> 
+                <ul className={styles.ArticleComments}> 
                     {comments.map(comment => {
                         return (
-                            <CommentCard key={comment.comment_id} comments={comment} handleDelete={this.handleDelete} username={username}/>
+                            <div className={styles.articleComments} key={comment.comment_id}>
+                                <CommentCard comments={comment} handleDelete={this.handleDelete} username={username}/>
+                            </div>
+                            
                         )
                     })}
                 </ul>

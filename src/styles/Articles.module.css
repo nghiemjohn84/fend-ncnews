@@ -5,22 +5,23 @@
     --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   }
 
- ul{
+ /* .articleList ul{
     list-style: none;
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
-}
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+    grid-gap: 10px;
+} */
 
- li{
-    
-    background: lightgray;
+ .articleList li{
+    list-style: none;
     text-align: center;
+    border-radius: 10px;
     padding: 1.5rem 2rem;
-    box-shadow: var(--shadow);
+    margin: 10px;
 }
 
-.articleBox {
+.articleList {
     border-radius: 5px;
-    margin: 10px;
+    margin: 20px;
     box-shadow: var(--shadow)
 }

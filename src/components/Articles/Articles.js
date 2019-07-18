@@ -33,12 +33,12 @@ class Articles extends React.Component {
         const {topic} = this.props
         const {sort_by, order} = this.state
         getArticles(topic, sort_by, order)
-        .then((articles) => {
+        .then(({articles}) => {
             this.setState({
                 articles, isLoading: false
             })
         }).catch((err) => {
-            this.setState({err})
+            this.setState({err, isLoading: false})
         })
     }
 
@@ -52,6 +52,7 @@ class Articles extends React.Component {
         this.setState({order: value})
     }
 
+
     render() {
         const {articles, isLoading, err} = this.state
         if(err) return <ErrorPage err={err} />
@@ -59,8 +60,8 @@ class Articles extends React.Component {
         return(
             <div>
                 <Sorter setSort={this.setSort}/>
-                <OrderBy setOrder={this.setOrder} />
-                <ul>
+                <OrderBy setOrder={this.setOrder} value={this.state.order}/>
+                <ul className={styles.articleList}>
                     {articles.map(article => {
                         return(
                             <ArticleCard articles={article} key={article.article_id}/>

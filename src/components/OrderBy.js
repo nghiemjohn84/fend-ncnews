@@ -5,6 +5,7 @@ const OrderBy = (props) => {
         <select onChange={props.setOrder}>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
+            
         </select>
     )
 }

@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Articles from './components/Articles/Articles'
 import Home from './components/Home'
 import Article from './components/Article/Article'
+import ErrorPage from './utils/ErrorPage'
 
 class App extends React.Component {
   state = {
@@ -24,6 +25,7 @@ class App extends React.Component {
         <Articles path='/articles' loggedInAs={loggedInAs}/>
         <Articles path='/articles/topic/:topic' loggedInAs={loggedInAs}/>
         <Article path='/articles/:article_id' loggedInAs={loggedInAs} />
+        <ErrorPage default/>
       </Router>
 
     </div>

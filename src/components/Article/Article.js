@@ -4,6 +4,7 @@ import Loading from '../../utils/Loading'
 import ErrorPage from '../../utils/ErrorPage'
 import ArticleComments from '../Comments/ArticleComments'
 import Voter from '../Voter'
+import dateFormat from '../../utils/DateFormat'
 import styles from '../../styles/Article.module.css'
 
 
@@ -26,7 +27,7 @@ class Article extends React.Component {
                 article: article, isLoading: false
             })
         }).catch(err => {
-            this.setState({err})
+            this.setState({err, isLoading: false})
         })
     }
 
@@ -42,14 +43,14 @@ class Article extends React.Component {
         if(err) return <ErrorPage err={err} />
         if(isLoading) return <Loading text='Loading article...' />
         return(       
-            <div className='article'>
+            <div className={styles.singleArticle}>
                 <h3>{article.title}</h3>
                 <p>{article.body}</p>
                 <h4>Author:{article.author}</h4>
                 <h4>Topic: {article.topic}</h4>
                 <h4>Comments: {article.comment_count}</h4>
+                <h4>Submitted on: {dateFormat(article.created_at)}</h4> 
                 <Voter votes={article.votes} id={article.article_id} type='article'/>
-                {/* <h5>Created at: {article.created_at}</h5> */}
                 <ArticleComments article_id={article_id} username={loggedInAs}/>
             </div>
         )

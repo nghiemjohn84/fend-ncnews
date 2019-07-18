@@ -1,10 +1,21 @@
-:root {
-    --primary: #ddd;
-    --dark: #333;
-    --light: #fff;
-    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  }
-
 .header {
-  background: red
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 
+    'title loggedInAs';
+    width: 100vw;
+    background: gold;
+    margin: 10px;
+    border-radius: 5px;
+} 
+
+.header h1 {
+    font-size: 6vw
 }
+
+.header h3{
+    text-align: right;
+    margin: 50px;
+    font-size: 2vw
+}
+

@@ -1,0 +1,14 @@
+.voter {
+
+}
+
+.voter button {
+    background: red;
+    border-radius: 5px;
+    color: var(--light);
+    padding: 1.6rem 1.9rem;
+    text-decoration: none;
+    border: 0;
+    font-size:19px;
+    margin: 20px;
+}

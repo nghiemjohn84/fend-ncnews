@@ -10,7 +10,7 @@ class Voter extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className={styles.voter}>
                 <button onClick={()=> this.voteAdder(1)} disabled={this.state.voteMod === 1}>UP</button>
                 <button onClick={()=> this.voteAdder(-1)} disabled={this.state.voteMod === -1}>DOWN</button>
                 Votes: {this.props.votes + this.state.voteMod}
