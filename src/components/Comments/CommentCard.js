@@ -5,15 +5,16 @@ import dateFormat from '../../utils/DateFormat'
 
 
 const CommentCard = (props) => {
+    const {author, votes, created_at, comment_id, body} = props.comments
     return (
-        <li className={styles.commentCard} key={props.comments.comment_id}>
-            {props.comments.body}
-            <p>Author: {props.comments.author}</p>
-            <p>Votes: {props.comments.votes}</p>
-            <Voter votes={props.comments.votes} id={props.comments.comment_id} type='comment'/>
-            {<p>Added: {dateFormat(props.comments.created_at)}</p> }
-            {(props.username === props.comments.author ? 
-            <button onClick={() => props.handleDelete(props.comments.comment_id)}>Delete Comment</button> : '')}
+        <li className={styles.commentCard} key={comment_id}>
+            {body}
+            <p>Author: {author}</p>
+            <p>Votes: {votes}</p>
+            <Voter votes={votes} id={comment_id} type='comment'/>
+            {<p>Added: {dateFormat(created_at)}</p> }
+            {(props.username === author ? 
+            <button onClick={() => props.handleDelete(comment_id)}>Delete Comment</button> : '')}
     </li>
     )
 }

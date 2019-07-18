@@ -12,10 +12,12 @@ class Articles extends React.Component {
     state = {
         articles: [],
         sort_by: 'created_at',
-        order: 'desc',
+        order: 'asc',
         isLoading: true,
-        err: null
-    }
+        err: null,
+        p: 1,
+        articleCount: 0
+    } 
 
     componentDidMount() {
         this.fetchArticles()
@@ -24,18 +26,22 @@ class Articles extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         if(prevProps.topic !== this.props.topic || 
             prevState.sort_by !== this.state.sort_by ||
-            prevState.order !== this.state.order) {
+            prevState.order !== this.state.order ||
+            prevState.p !== this.state.p) {
             this.fetchArticles()
         }
     }
 
     fetchArticles = () =>{
         const {topic} = this.props
-        const {sort_by, order} = this.state
-        getArticles(topic, sort_by, order)
-        .then(({articles}) => {
+        const {sort_by, order, p} = this.state
+        getArticles(topic, sort_by, order, p)
+        .then(([articles]) => {
             this.setState({
-                articles, isLoading: false
+                articles:articles.articles, 
+                articleCount: articles.articleCount[0].count,
+                isLoading: false,
+                err: null
             })
         }).catch((err) => {
             this.setState({err, isLoading: false})
@@ -52,15 +58,32 @@ class Articles extends React.Component {
         this.setState({order: value})
     }
 
+    handleChangePage = (value) => {
+        const {topic} = this.props
+        const {sort_by, order, p} = this.state
+        getArticles(topic, sort_by, order, p)
+        .then(([articles]) => {
+            this.setState({
+                articles:articles.articles, 
+                p: p + value,
+                err: null,
+                isLoading: false
+            })
+        })
+    }
 
     render() {
-        const {articles, isLoading, err} = this.state
+        const {articles, isLoading, err, p, articleCount} = this.state
+        const pageCalc = p * 10
+        const finalPage = pageCalc >= articleCount
         if(err) return <ErrorPage err={err} />
         if(isLoading) return <Loading text='loading articles...' />
         return(
             <div>
                 <Sorter setSort={this.setSort}/>
                 <OrderBy setOrder={this.setOrder} value={this.state.order}/>
+                {(!finalPage) && <button onClick={() => this.handleChangePage(1)}>Next Page</button>}
+                {(p !== 1) && <button onClick={() => this.handleChangePage(-1)}>Previous Page</button>}
                 <ul className={styles.articleList}>
                     {articles.map(article => {
                         return(
