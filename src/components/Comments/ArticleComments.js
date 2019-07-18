@@ -50,16 +50,13 @@ class ArticleComments extends React.Component {
         if(err) return <ErrorPage err={err} />
         if(isLoading) return <Loading text='Loading comments...' />
         return (
-            <div>
+            <div className={styles.articleComments}>
                 <CommentAdder addComment={this.addComment} article_id={article_id} username={username}/>
                 <h3>Submitted Comments:</h3>
-                <ul className={styles.articleComments}> 
+                <ul> 
                     {comments.map(comment => {
                         return (
-                            <div key={comment.comment_id}>
-                                <CommentCard comments={comment} handleDelete={this.handleDelete} username={username}/>
-                            </div>
-                            
+                           <CommentCard key={comment.comment_id} comments={comment} handleDelete={this.handleDelete} username={username}/> 
                         )
                     })}
                 </ul>

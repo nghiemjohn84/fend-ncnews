@@ -1,5 +1,7 @@
 .navbar {
-    background: whitesmoke
+    background: rgb(228, 230, 217);
+    border-radius: 10px;
+    margin: 10px;
 }
 
 .navbar button {

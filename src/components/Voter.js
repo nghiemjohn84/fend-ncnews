@@ -13,17 +13,11 @@ class Voter extends React.Component {
     render() {
         return(
             <div className={styles.voter}>
-                <img src="" alt=""/>
-
-                <button onClick={()=> this.voteAdder(1)} disabled={this.state.voteMod === 1}>
+                <button id='up' onClick={()=> this.voteAdder(1)} disabled={this.state.voteMod === 1}>
                 <img src={thumbsUp} alt="{thumbsUp}" /></button>
-                
                 <h3>Votes: {this.props.votes + this.state.voteMod}</h3>
-
-                <button onClick={()=> this.voteAdder(-1)} disabled={this.state.voteMod === -1} >
+                <button id='down' onClick={()=> this.voteAdder(-1)} disabled={this.state.voteMod === -1} >
                 <img src={thumbsDown} alt="{thumbsDown}" /></button>
-                
-                
             </div>
         )
     }

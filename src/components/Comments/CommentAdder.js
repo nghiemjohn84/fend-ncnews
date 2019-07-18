@@ -31,13 +31,11 @@ class CommentAdder extends React.Component {
     render() {
         const {body} = this.state
         return (
-            <div className={styles.commentAdder}>
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor="body"> Share your thoughts:</label>
-                <input type="text" name='body' id='body' value={body} onChange={this.handleChange} required/>
-                <button>Submit my thoughts</button>
+            <form onSubmit={this.handleSubmit} className={styles.commentAdder}>
+                <input type="text" name='body' id='body' placeholder='Share your thoughts...' value={body} onChange={this.handleChange} required/>
+                <button>Submit your thoughts</button>
             </form>
-            </div>
+
         )
     }
 }
