@@ -1,8 +1,11 @@
 .singleArticle {
     background: white;
     border-radius: 5px;
-    margin: 20px;
-    box-shadow: var(--shadow)
+    padding: 0.5rem 0.5rem;
+    border: 10px;
+    font-size: 1.5vw;
+    width: 90vw;
+    margin: 10px auto;
 }
 
 .articleList li{
