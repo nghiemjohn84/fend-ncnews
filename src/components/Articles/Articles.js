@@ -4,7 +4,6 @@ import styles from '../../styles/Articles.module.css'
 import Loading from '../../utils/Loading'
 import ErrorPage from '../../utils/ErrorPage'
 import Sorter from '../Sorter'
-import OrderBy from '../OrderBy'
 import ArticleCard from '../Article/ArticleCard'
 
 
@@ -80,14 +79,13 @@ class Articles extends React.Component {
         if(isLoading) return <Loading text='loading articles...' />
         return(
             <div>
-                <Sorter setSort={this.setSort}/>
-                <OrderBy setOrder={this.setOrder} value={this.state.order}/>
+                <Sorter setSort={this.setSort} OrderBy setOrder={this.setOrder} value={this.state.order}/>
                 {(!finalPage) && <button onClick={() => this.handleChangePage(1)}>Next Page</button>}
                 {(p !== 1) && <button onClick={() => this.handleChangePage(-1)}>Previous Page</button>}
                 <ul className={styles.articleList}>
                     {articles.map(article => {
                         return(
-                            <ArticleCard articles={article} key={article.article_id}/>
+                         <ArticleCard articles={article} key={article.article_id}/>
                         )
                     })}
                 </ul>

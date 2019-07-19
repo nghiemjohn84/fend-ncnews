@@ -32,7 +32,7 @@ class CommentAdder extends React.Component {
         const {body} = this.state
         return (
             <form onSubmit={this.handleSubmit} className={styles.commentAdder}>
-                <input type="text" name='body' id='body' placeholder='Share your thoughts...' value={body} onChange={this.handleChange} required/>
+                <textarea type="text" name='body' id='body' placeholder='Share your thoughts...' value={body} onChange={this.handleChange} required></textarea>
                 <button>Submit your thoughts</button>
             </form>
 
