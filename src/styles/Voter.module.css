@@ -1,20 +1,37 @@
 .voter {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    'up h3 down'
 }
 
 .voter img {
-    width: 3vw
+    width: 3.5vw
 }
 
-.voter button {
-    background: white;;
+.voter button.up {
+    grid-area: up;
+    background: white;
     padding: 0.5rem 0.5rem;
     border: 10px;
-    width: 4vw;
-    margin: 5px auto;
+    width: 2vw;
+    height: 2vw;
+    justify-self: right
+    
 }
 
-/* .voter button:hover {
-    background: grey;
-} */
+.voter button.down {
+    grid-area: down;
+    background: white;
+    padding: 0.5rem 0.5rem;
+    border: 10px;
+    width: 2vw;
+    height: 2vw;
+    justify-self: left;
+}
+
+.voter h3 {
+    grid-area: h3;
+    justify-self: center;
+}
+
