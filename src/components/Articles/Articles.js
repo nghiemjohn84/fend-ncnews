@@ -31,16 +31,17 @@ class Articles extends React.Component {
         }
     }
 
-    fetchArticles = () =>{
+    fetchArticles = () => {
         const {topic} = this.props
         const {sort_by, order, p} = this.state
         getArticles(topic, sort_by, order, p)
-        .then(([articles]) => {
+        .then((articles) => {
             this.setState({
                 articles:articles.articles, 
-                articleCount: articles.articleCount[0].count,
+                articleCount: articles.total_count,
                 isLoading: false,
-                err: null
+                err: null,
+                p: p
             })
         }).catch((err) => {
             this.setState({err, isLoading: false})
@@ -61,7 +62,7 @@ class Articles extends React.Component {
         const {topic} = this.props
         const {sort_by, order, p} = this.state
         getArticles(topic, sort_by, order, p)
-        .then(([articles]) => {
+        .then((articles) => {
             this.setState({
                 articles:articles.articles, 
                 p: p + value,
@@ -80,8 +81,11 @@ class Articles extends React.Component {
         return(
             <div>
                 <Sorter setSort={this.setSort} OrderBy setOrder={this.setOrder} value={this.state.order}/>
-                {(!finalPage) && <button onClick={() => this.handleChangePage(1)}>Next Page</button>}
-                {(p !== 1) && <button onClick={() => this.handleChangePage(-1)}>Previous Page</button>}
+
+                <button onClick={() => this.handleChangePage(1)} disabled={(finalPage)}>Next Page</button>
+                <p>Page: {p}</p>
+                <button onClick={() => this.handleChangePage(-1)} disabled={(p === 1)}>Previous Page</button>
+
                 <ul className={styles.articleList}>
                     {articles.map(article => {
                         return(

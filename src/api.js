@@ -11,7 +11,8 @@ export const getArticles = async (topic, sort_by, order, p)=> {
                 p
             }
     })
-    return [data]
+    // console.log(data)
+    return data
 }
 
 export const getArticleByArticleId = async article_id => {

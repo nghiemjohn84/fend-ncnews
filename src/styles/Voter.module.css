@@ -9,7 +9,7 @@
     width: 2vw
 }
 
-.voter button.up {
+.voter button.enable_up {
     grid-area: up;
     background: white;
     padding: 0.5rem 0.5rem;
@@ -17,10 +17,9 @@
     width: 2vw;
     height: 2vw;
     justify-self: right
-    
 }
 
-.voter button.down {
+.voter button.enable_down {
     grid-area: down;
     background: white;
     padding: 0.5rem 0.5rem;
@@ -30,6 +29,28 @@
     justify-self: left;
 }
 
+.voter button.disable_up {
+    grid-area: up;
+    background: white;
+    opacity: 0.2;
+    padding: 0.5rem 0.5rem;
+    border: 10px;
+    width: 2vw;
+    height: 2vw;
+    justify-self: right
+    
+}
+
+.voter button.disable_down {
+    grid-area: down;
+    background: white;
+    opacity: 0.5;
+    padding: 0.5rem 0.5rem;
+    border: 10px;
+    width: 2vw;
+    height: 2vw;
+    justify-self: left;
+}
 .voter h3 {
     grid-area: h3;
     justify-self: center;
