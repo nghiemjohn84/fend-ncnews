@@ -1,4 +1,4 @@
-.loading img {
+.errorPage img {
     width: 30vw;
     height: 20vw;
     border: 1px solid black;
@@ -10,6 +10,10 @@
     margin-right: auto;
 }
 
-.loading h2 {
-  font-size: 4vw
+.errorPage h1 {
+    font-size: 5vw
+}
+
+.errorPage h2 {
+    font-size: 3vw
 }

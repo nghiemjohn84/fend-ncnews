@@ -5,7 +5,7 @@ import Loading from '../../utils/Loading'
 import ErrorPage from '../../utils/ErrorPage'
 import Sorter from '../Sorter'
 import ArticleCard from '../Article/ArticleCard'
-
+import PageChanger from '../PageChange'
 
 class Articles extends React.Component {
     state = {
@@ -58,18 +58,9 @@ class Articles extends React.Component {
         this.setState({order: value})
     }
 
-    handleChangePage = (value) => {
-        const {topic} = this.props
-        const {sort_by, order, p} = this.state
-        getArticles(topic, sort_by, order, p)
-        .then((articles) => {
-            this.setState({
-                articles:articles.articles, 
-                p: p + value,
-                err: null,
-                isLoading: false
-            })
-        })
+    setPage = p => {
+        this.setState({p: p})
+
     }
 
     render() {
@@ -81,11 +72,7 @@ class Articles extends React.Component {
         return(
             <div>
                 <Sorter setSort={this.setSort} OrderBy setOrder={this.setOrder} value={this.state.order}/>
-
-                <button onClick={() => this.handleChangePage(1)} disabled={(finalPage)}>Next Page</button>
-                <p>Page: {p}</p>
-                <button onClick={() => this.handleChangePage(-1)} disabled={(p === 1)}>Previous Page</button>
-
+                <PageChanger p={p} finalPage={finalPage} setPage={this.setPage}/>
                 <ul className={styles.articleList}>
                     {articles.map(article => {
                         return(

@@ -5,21 +5,6 @@
     --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   }
 
- /* .articleList ul{
-    list-style: none;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
-    grid-gap: 10px;
-} */
-
- /* .articleList li{
-    list-style: none;
-    text-align: center;
-    border-radius: 10px;
-    padding: 1.5rem 2rem;
-    margin: 10px;
-} */
-
 .articleList {
     background: var(--dark);
     border-radius: 5px;
@@ -41,4 +26,20 @@
     border-radius: 10px;
     padding: 1.5rem 2rem;
    
+}
+
+.articleList h5 {
+    font-size:1.5vw
+}
+
+.articleList h3 {
+    font-size:1.5vw
+}
+
+.articleList h4 {
+    font-size:1.5vw
+}
+
+.articleList h2 {
+    font-size:2vw
 }

@@ -7,7 +7,6 @@ import Voter from '../Voter'
 import dateFormat from '../../utils/DateFormat'
 import styles from '../../styles/Article.module.css'
 
-
 class Article extends React.Component {
     state = {
         article: {},
@@ -17,7 +16,7 @@ class Article extends React.Component {
 
     componentDidMount() {
         this.fetchArticleById()
-    }
+    } 
 
     fetchArticleById = () => {
         const {article_id} = this.props
@@ -44,13 +43,13 @@ class Article extends React.Component {
         if(isLoading) return <Loading text='Loading article...' />
         return(       
             <div className={styles.singleArticle}>
-                <h3>{article.title}</h3>
+                <h2>{article.title}</h2>
                 <p>{article.body}</p>
                 <h4>Author:{article.author}</h4>
                 <h4>Topic: {article.topic}</h4>
                 <h4>Comments: {article.comment_count}</h4>
                 <h4>Submitted on: {dateFormat(article.created_at)}</h4> 
-                <Voter votes={article.votes} id={article.article_id} type='article'/>
+                <Voter className={styles.singleArticleVoter} votes={article.votes} id={article.article_id} type='article'/>
                 <ArticleComments article_id={article_id} username={loggedInAs}/>
             </div>
         )

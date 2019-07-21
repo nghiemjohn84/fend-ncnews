@@ -5,8 +5,8 @@ import LoadingImg from '../images/LoadingImg.gif'
 const Loading = ({ text }) => {
     return (
         <div>  
-            <div className='loading'>
-                <p>{text || 'loading...'}</p>
+            <div className={styles.loading}>
+                <h2>{text || 'loading...'}</h2>
                 <img src={LoadingImg} alt={'LoadingImg'}/>
             </div>
         </div>

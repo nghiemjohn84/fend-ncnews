@@ -25,7 +25,7 @@ class App extends React.Component {
         <Articles path='/articles' loggedInAs={loggedInAs}/>
         <Articles path='/articles/topic/:topic' loggedInAs={loggedInAs}/>
         <Article path='/articles/:article_id' loggedInAs={loggedInAs} />
-        <ErrorPage default/>
+        <ErrorPage path='/*'/>
       </Router>
 
     </div>

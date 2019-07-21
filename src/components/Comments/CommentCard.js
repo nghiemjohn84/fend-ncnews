@@ -8,9 +8,8 @@ const CommentCard = (props) => {
     const {author, votes, created_at, comment_id, body} = props.comments
     return (
         <li className={styles.commentCard} key={comment_id}>
-            {body}
+            <p>{body}</p>
             <p>Author: {author}</p>
-            <p>Votes: {votes}</p>
             <Voter votes={votes} id={comment_id} type='comment'/>
             {<p>Added: {dateFormat(created_at)}</p> }
             {(props.username === author ? 

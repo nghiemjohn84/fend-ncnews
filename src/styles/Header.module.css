@@ -3,19 +3,23 @@
     grid-gap: 20px;
     grid-template-areas: 
     'title loggedInAs';
-    width: 98vw;
     background: gold;
     margin: 10px;
     border-radius: 10px;
 } 
 
 .header h1 {
-    font-size: 6vw
+    font-size: 6vw;
 }
 
 .header h3{
     text-align: right;
     margin: 50px;
-    font-size: 2vw
+    font-size: 2vw;
+}
+
+.header .link {
+    text-decoration: none;
+    color: inherit
 }
 
