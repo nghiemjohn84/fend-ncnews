@@ -5,8 +5,16 @@
     'up h3 down'
 }
 
-.voter img {
-    width: 3vw;
+.voter button {
+
+}
+
+.voter .emojiUp{
+    font-size: 3vw
+}
+
+.voter .emojiDown{
+    font-size: 3vw
 }
 
 .voter button.enable_up {
@@ -14,18 +22,18 @@
     background: white;
     padding: 0.5rem 0.5rem;
     border: 10px;
-    width: 2vw;
-    height: 2vw;
+    width: 4vw;
+    height: 4vw;
     justify-self: right
 }
 
 .voter button.enable_down {
     grid-area: down;
-    background: white;
+    background:white;
     padding: 0.5rem 0.5rem;
     border: 10px;
-    width: 2vw;
-    height: 2vw;
+    width: 4vw;
+    height: 4vw;
     justify-self: left;
 }
 
@@ -35,8 +43,8 @@
     opacity: 0.2;
     padding: 0.5rem 0.5rem;
     border: 10px;
-    width: 2vw;
-    height: 2vw;
+    width: 4vw;
+    height: 4vw;
     justify-self: right
     
 }
@@ -47,8 +55,8 @@
     opacity: 0.5;
     padding: 0.5rem 0.5rem;
     border: 10px;
-    width: 2vw;
-    height: 2vw;
+    width: 4vw;
+    height: 4vw;
     justify-self: left;
 }
 .voter h3 {

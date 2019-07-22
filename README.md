@@ -3,8 +3,8 @@
 NC News is a news aggregation site built in React making API calls from the back end server.  It allows users to view web content and enter in discussion by adding and deleteing comments, and also voting on the content.
 
 ### NC News Front-End
-* Deployed on Netlify:
-* Github Link:
+* Deployed on Netlify: https://jn-nc-news-app.netlify.com/
+* Github Link: https://github.com/nghiemjohn84/nc-news-app
 
 ### NC News Back-End
 * Hosted on Heroku: https://nc-news-jn.herokuapp.com/api
