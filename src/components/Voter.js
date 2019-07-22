@@ -13,13 +13,14 @@ class Voter extends React.Component {
             <div className={styles.voter}>
                 <button className={this.state.voteMod === 1 ? styles.disable_up : styles.enable_up} 
                 onClick={()=> this.voteAdder(1)} 
-                disabled={this.state.voteMod === 1}>👍</button>
+                disabled={this.state.voteMod === 1}><span role="img" aria-label="thumbsUp">👍</span></button>
+                
                 
                 <h3>Votes: {this.props.votes + this.state.voteMod}</h3>
                 
                 <button className={this.state.voteMod === -1 ? styles.disable_down : styles.enable_down} 
                 onClick={()=> this.voteAdder(-1)} 
-                disabled={this.state.voteMod === -1} >👎</button>
+                disabled={this.state.voteMod === -1} ><span role="img" aria-label="thumbsDown">👎</span></button>
             </div>
         )
     }
