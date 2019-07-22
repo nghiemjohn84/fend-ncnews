@@ -60,7 +60,6 @@ class Articles extends React.Component {
 
     setPage = p => {
         this.setState({p: p})
-
     }
 
     render() {

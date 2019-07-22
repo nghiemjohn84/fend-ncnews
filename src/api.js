@@ -11,7 +11,6 @@ export const getArticles = async (topic, sort_by, order, p)=> {
                 p
             }
     })
-    // console.log(data)
     return data
 }
 

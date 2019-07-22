@@ -5,11 +5,11 @@ import styles from '../styles/Navbar.module.css'
 const Navbar = () => {
     return (
         <nav className={styles.navbar}>
-            <Link to='/'><button>Home</button></Link>
-            <Link to='/articles'><button >All Articles</button></Link>
-            <Link to='/articles/topic/cooking'><button>Cooking</button></Link>
-            <Link to='/articles/topic/football'><button>Football</button></Link> 
-            <Link to='/articles/topic/coding'><button>Coding</button></Link>   
+            <Link to='/' ><button >Home</button></Link>
+            <Link to='/articles' onClick={() => window.location.refresh()}><button >All Articles</button></Link>
+            <Link to='/articles/topic/cooking' onClick={() => window.location.refresh()}><button>Cooking</button></Link>
+            <Link to='/articles/topic/football' onClick={() => window.location.refresh()}><button>Football</button></Link> 
+            <Link to='/articles/topic/coding' onClick={() => window.location.refresh()}><button>Coding</button></Link>   
         </nav>
     )
 }
