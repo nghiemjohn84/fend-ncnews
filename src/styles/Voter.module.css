@@ -1,64 +1,53 @@
-.voter {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 
-    'up h3 down'
-}
-
-.voter button {
-
-}
-
-.voter .emojiUp{
-    font-size: 3vw
-}
-
-.voter .emojiDown{
-    font-size: 3vw
-}
-
 .voter button.enable_up {
-    grid-area: up;
-    background: white;
-    padding: 0.5rem 0.5rem;
-    border: 10px;
-    width: 4vw;
-    height: 4vw;
-    justify-self: right
+    border-radius: 5px;
+    color: var(--light);
+    padding: 1vw 1vw;
+    text-decoration: none;
+    border: 5vw;
+    margin: 5px;
+    font-size: 2vw;
+    text-align: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-.voter button.enable_down {
-    grid-area: down;
-    background:white;
-    padding: 0.5rem 0.5rem;
-    border: 10px;
-    width: 4vw;
-    height: 4vw;
-    justify-self: left;
+.voter button.enable_down{
+    border-radius: 5px;
+    color: var(--light);
+    padding: 1vw 1vw;
+    text-decoration: none;
+    border: 5vw;
+    margin: 5px;
+    font-size: 2vw;
+    text-align: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-.voter button.disable_up {
-    grid-area: up;
-    background: white;
-    opacity: 0.2;
-    padding: 0.5rem 0.5rem;
-    border: 10px;
-    width: 4vw;
-    height: 4vw;
-    justify-self: right
-    
-}
-
-.voter button.disable_down {
-    grid-area: down;
-    background: white;
+.voter button.disable_up{
+    border-radius: 5px;
+    color: var(--light);
+    padding: 1vw 1vw;
+    text-decoration: none;
+    border: 5vw;
+    margin: 5px;
+    font-size: 2vw;
+    text-align: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     opacity: 0.5;
-    padding: 0.5rem 0.5rem;
-    border: 10px;
-    width: 4vw;
-    height: 4vw;
-    justify-self: left;
 }
+
+.voter button.disable_down{
+    border-radius: 5px;
+    color: var(--light);
+    padding: 1vw 1vw;
+    text-decoration: none;
+    border: 5vw;
+    margin: 5px;
+    font-size: 2vw;
+    text-align: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    opacity: 0.5;
+}
+
 .voter h3 {
     grid-area: h3;
     justify-self: center;
