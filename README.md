@@ -27,7 +27,7 @@ The information below will allow you to get this application up and running on y
 1. Clone this repository on to your local machine 
 
 ```
-git clone 
+git clone https://github.com/nghiemjohn84/fend-ncnews.git
 ```
 
 2. Navigate into the repository
