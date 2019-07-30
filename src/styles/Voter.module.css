@@ -53,3 +53,8 @@
     justify-self: center;
 }
 
+@media (max-width: 600px) {
+    .voter h3 {
+        font-size: 3vw
+    }
+}

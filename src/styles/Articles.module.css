@@ -43,3 +43,22 @@
 .articleList h2 {
     font-size:2vw
 }
+
+@media (max-width: 600px) {
+    .articleList h5 {
+        font-size: 3.5vw
+    }
+    .articleList h3 {
+        font-size: 3vw
+    }
+    .articleList h4 {
+        font-size: 3vw
+    }
+    .articleList h2 {
+        font-size:4vw
+    }
+    .articleList {
+        padding: 1rem 1rem;
+        margin: 10px;
+    }
+}

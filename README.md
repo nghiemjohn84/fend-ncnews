@@ -10,7 +10,7 @@ NC News is a news aggregation site built in React making API calls from the back
 * Hosted on Heroku: https://nc-news-jn.herokuapp.com/api
 * Github Link: https://github.com/nghiemjohn84/bend-ncnews
 
-## Prerequisites
+## Dependencies
 * Built with React
 * @reach/router ^1.2.1
 * axios ^0.19.0
@@ -32,7 +32,7 @@ git clone https://github.com/nghiemjohn84/fend-ncnews.git
 
 2. Navigate into the repository
 ```
-cd fe-nc-news
+cd fend-ncnews
 ```
 
 3. Open in your code editor

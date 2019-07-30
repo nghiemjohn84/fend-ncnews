@@ -35,13 +35,13 @@ class Articles extends React.Component {
         const {topic} = this.props
         const {sort_by, order, p} = this.state
         getArticles(topic, sort_by, order, p)
-        .then((articles) => {
+        .then(({articles, total_count}) => {
             this.setState({
-                articles:articles.articles, 
-                articleCount: articles.total_count,
+                articles: articles, 
+                articleCount: total_count,
                 isLoading: false,
                 err: null,
-                p: p
+                p:p
             })
         }).catch((err) => {
             this.setState({err, isLoading: false})
@@ -59,6 +59,7 @@ class Articles extends React.Component {
     }
 
     setPage = p => {
+        const articleCount = this.state
         this.setState({p: p})
     }
 
@@ -70,7 +71,7 @@ class Articles extends React.Component {
         if(isLoading) return <Loading text='loading articles...' />
         return(
             <div>
-                <Sorter setSort={this.setSort} OrderBy setOrder={this.setOrder} value={this.state.order}/>
+                <Sorter setSort={this.setSort} setOrder={this.setOrder} value={this.state.order}/>
                 <PageChanger p={p} finalPage={finalPage} setPage={this.setPage}/>
                 <ul className={styles.articleList}>
                     {articles.map(article => {

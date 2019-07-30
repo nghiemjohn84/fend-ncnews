@@ -33,3 +33,25 @@
     background: red;
     color: white;
 }
+
+@media (max-width: 600px) {
+    .commentAdder textarea {
+        font-size: 3.5vw;
+        margin: 0 auto; 
+        width: 40vw;
+        height:30vw;
+        font-size: 2vw;
+        padding: 12px 20px;
+    }
+
+    .commentAdder button {
+        background: var(--dark);
+        border-radius: 5px;
+        color: var(--light);
+        padding: 0.5rem 0.5rem;
+        border: 10px;
+        font-size: 2.5vw;
+        width: 30vw;
+        margin: 5px auto;
+    }
+}

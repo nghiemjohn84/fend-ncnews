@@ -8,7 +8,7 @@ export const getArticles = async (topic, sort_by, order, p)=> {
                 topic,
                 sort_by,
                 order,
-                p
+                p, 
             }
     })
     return data
